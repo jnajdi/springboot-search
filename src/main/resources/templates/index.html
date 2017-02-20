@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   
+   <head th:include="fragment/common :: headerFragment" />
+   
+   <body>
+ 		<nav th:include="fragment/navigation :: navigationFragment" />
+	   
+	    <div class="container">
+	    	<div class="siteList" th:unless="${#lists.isEmpty(allSites)}">
+	    		<h4 th:text="#{title.scaffoldings.list}">List of Sites</h4>
+	    	</div>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<th th:text="#{title.site.siteId}">ID</th>
+	    				<th th:text="#{title.site.title}">Title</th>
+	    				<th th:text="#{title.site.modifiedOn}">ID</th>
+	    				
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr th:each="site: ${allSites}">
+	    				<td><a href="/sites/siteId" th:href="@{|/site/${site.siteId}|}" th:text="|${site.siteId}|"></a>&nbsp;</td>
+	    				
+	    				<td th:text="${site.title}"></td>
+	    				<td th:text="${site.modifiedOn}"></td>
+	    			</tr>
+	    		</tbody>
+	    	</table>
+	    </div>
+	</body>
+</html>

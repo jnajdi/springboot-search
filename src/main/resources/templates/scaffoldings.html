@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   
+   <head th:include="fragment/common :: headerFragment" />
+   <body>
+ 		<nav th:include="fragment/navigation :: navigationFragment" />
+	   
+	    <div class="container">
+	    	<div class="scaffoldingList" th:unless="${#lists.isEmpty(allScaffoldings)}">
+	    		<h4 th:text="#{title.scaffoldings.list}">List of Scaffoldings </h4>
+	    	</div>
+	    	
+	    	<form role="form" class="form-horizontal" method="POST" action="#" th:action="@{/site/}">
+		    	<select class="form-control">
+				  <option th:each="user : ${allUsers}" th:value="${user.pid}" th:text="${user.firstName} + ' ' + ${user.lastName}" >Users</option>
+				</select>
+				
+				<ul>
+				  <li th:each="ty : ${allScaffoldings}">
+				    <input type="radio" tth:value="${ty}" />
+				    <label th:text="${ty.title}">Wireframe</label>
+				  </li>
+				</ul>
+				
+				<div class="form-group"> 
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button type="submit" class="btn btn-default">Submit</button>
+				      <button type="reset" class="btn btn-default">Reset</button>
+				    </div>
+			    </div>
+			</form>
+			
+	    </div>
+	</body>
+</html>

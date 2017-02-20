@@ -1,0 +1,38 @@
+*.rbc
+capybara-*.html
+/log
+/tmp
+/db/*.sqlite3
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+secrets.js
+*_web_pack_bundle.js
+.idea/
+.env
+.DS_Store
+
+bin/deploy
+
+## Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalise the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+**/target/**
+
+*.classpath
+*.ignore
+*.mvn/wrapper/maven-wrapper.jar
+*.mvn/wrapper/maven-wrapper.properties
+*.project
+
+application-default.properties

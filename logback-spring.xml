@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <logger name="org.springframework" level="error"/>
+    <logger name="org.hibernate" level="error"/>
+    
+    <property name="LOG_PATH" value="/Users/jnajdi/Development/sakai/migration/osp/logs" />
+    <property name="LOG_FILE" value="scholar-migration-tool.log" />
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+                <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_PATH}/${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_PATH}/${LOG_FILE}.%d{yyyy-MM-dd-HH-mm}</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+	 <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+         <encoder>
+                <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    
+    <root level="info">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
+
+

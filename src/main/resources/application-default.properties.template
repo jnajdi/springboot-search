@@ -1,0 +1,42 @@
+
+archive_temp_directory=/Users/jnajdi/Development/sakai/migration/temp/
+archive_zip_directory=/Users/jnajdi/Development/sakai/migration/archives/
+
+## Set nfs_content_path if you need to override the default value: 
+#/nfs/scholarclone/<host>/content/
+#nfs_content_path=/Users/jnajdi/Development/sakai/migration/content/
+
+## PREPROD
+envr-domain=http://localhost:9018
+username=@_webadmin
+password=
+
+host=preprod.scholar.vt.edu
+spring.datasource.url=jdbc:oracle:thin:@localhost:1400/sakaippr
+spring.datasource.username=sakai
+spring.datasource.password=
+
+#Test Env. 
+#envr-domain=http://localhost:9028
+#username=@_webadmin
+#password=
+## TEST
+#host=test.scholar.vt.edu
+#spring.datasource.url=jdbc:oracle:thin:@localhost:1200/sakaidvl
+#spring.datasource.username=sakai
+#spring.datasource.password=
+
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+spring.datasource.connection-test-query=SELECT 1 from dual
+spring.datasource.test-while-idle=true
+spring.datasource.test-on-borrow=true
+spring.datasource.validation-interval=10000
+spring.datasource.log-validation-errors=true
+spring.datasource.validation-query=SELECT 1 from dual
+
+logging.config=logback-spring.xml
+spring.main.web_environment=false
+
+
+
